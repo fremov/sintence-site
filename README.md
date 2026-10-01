@@ -16,9 +16,15 @@
 GitHub Pages: ветка `main`, папка `/` (корень). `.nojekyll` отключает Jekyll,
 `404.html` — страница «не найдено».
 
-## riot.txt и свой домен
+## Домен
+
+Сайт — https://sintence.ru (файл `CNAME`; DNS у Beget: четыре A-записи
+`185.199.108–111.153` на корень, `www` — CNAME `fremov.github.io`).
+Старый адрес `https://fremov.github.io/sintence-site/` перенаправляет сюда.
+`robots.txt` и `sitemap.xml` — для поисковиков; в страницах `canonical`
+и `hreflang` с полными адресами — при смене домена править их тоже.
+
+## riot.txt
 
 Код подтверждения, который Riot выдаст при заявке, кладётся файлом `riot.txt`
-в корень репозитория. Riot ищет `riot.txt` в корне домена, а
-`https://fremov.github.io/sintence-site/` — подкаталог, поэтому нужен свой домен:
-тогда же добавляется файл `CNAME` с именем домена.
+в корень репозитория — он будет на `https://sintence.ru/riot.txt`.

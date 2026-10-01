@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://sintence.ru/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sintence.ru/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://sintence.ru/ru/"/>
+  </url>
+  <url>
+    <loc>https://sintence.ru/ru/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sintence.ru/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://sintence.ru/ru/"/>
+  </url>
+  <url>
+    <loc>https://sintence.ru/privacy.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sintence.ru/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://sintence.ru/ru/privacy.html"/>
+  </url>
+  <url>
+    <loc>https://sintence.ru/ru/privacy.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sintence.ru/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://sintence.ru/ru/privacy.html"/>
+  </url>
+  <url>
+    <loc>https://sintence.ru/terms.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sintence.ru/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://sintence.ru/ru/terms.html"/>
+  </url>
+  <url>
+    <loc>https://sintence.ru/ru/terms.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://sintence.ru/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://sintence.ru/ru/terms.html"/>
+  </url>
+</urlset>
