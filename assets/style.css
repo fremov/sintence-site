@@ -26,3 +26,8 @@ footer{border-top:1px solid var(--border);background:var(--panel);color:var(--mu
 footer p{margin:.5em 0}
 .legal{font-size:.82rem}
 .btn{display:inline-block;padding:.6em 1.2em;border-radius:8px;border:1px solid var(--border);background:var(--bg);color:var(--muted);font-weight:600;cursor:not-allowed;user-select:none}
+.shots{display:grid;gap:18px;margin:20px 0}
+.shots figure{margin:0}
+.shots img{display:block;width:100%;height:auto;border:1px solid var(--border);border-radius:8px}
+.shots .narrow img{max-width:390px}
+.shots figcaption{color:var(--muted);font-size:.9rem;margin-top:6px}
