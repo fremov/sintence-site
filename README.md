@@ -38,4 +38,4 @@ GitHub Pages: ветка `main`, папка `/` (корень). `.nojekyll` от
 - После подтверждения отправить `https://sintence.ru/sitemap.xml` в Search Console и в Вебмастер.
 - В `sitemap.xml` у страниц `lastmod` и `priority` — при правке страниц обновлять `lastmod`.
 - В `<head>` страниц: title, description, Open Graph, `twitter:card`, favicon
-  (`favicon.svg`, `favicon.ico`, `apple-touch-icon.png`); `404.html` — `noindex`.
+  (`favicon.ico` 16–48 px, `icon-192.png`, `apple-touch-icon.png` — из иконки приложения `sintence-app/assets/app-icon-1024.png`); `404.html` — `noindex`.
