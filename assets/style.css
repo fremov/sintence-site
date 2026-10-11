@@ -1,17 +1,23 @@
-:root{--bg:#0f1115;--panel:#171a21;--text:#e6e8ec;--muted:#9aa1ad;--accent:#6aa9ff;--border:#2a2f3a}
-@media (prefers-color-scheme: light){:root{--bg:#fafafa;--panel:#fff;--text:#1b1d22;--muted:#5a606b;--accent:#1f5fbf;--border:#dcdfe5}}
+/* Палитра иконки: коричневый #78464a, терракота #bd7350, бордовый #7c1a42, синий #577ac0.
+   Для текста на тёмном фоне — осветлённые оттенки (контраст ≥ 4.5:1). */
+:root{--bg:#110d10;--panel:#1b1519;--text:#ece6e7;--muted:#b0a5a8;--accent:#e3a383;--accent2:#9db3e3;--border:#3a2a30;
+--brown:#78464a;--terra:#bd7350;--wine:#7c1a42;--blue:#577ac0;--btn-text:#fff}
+@media (prefers-color-scheme: light){:root{--bg:#faf7f6;--panel:#fff;--text:#1f1a1c;--muted:#5d5357;--accent:#7c1a42;--accent2:#3a5a9e;--border:#e2d6d8}}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow-wrap:anywhere}
-a{color:var(--accent)}
-.wrap{max-width:860px;margin:0 auto;padding:0 16px}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow-wrap:anywhere;overflow-x:hidden}
+a{color:var(--accent);transition:color .2s}
+a:hover{color:var(--accent2)}
+.wrap{max-width:960px;margin:0 auto;padding:0 16px}
 header{border-bottom:1px solid var(--border);background:var(--panel)}
-header .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px;padding-top:12px;padding-bottom:12px}
-.brand{font-weight:700;font-size:1.25rem;text-decoration:none;color:var(--text);margin-right:auto}
+header .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px;padding-top:10px;padding-bottom:10px}
+.brand{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:1.25rem;text-decoration:none;color:var(--text);margin-right:auto}
+.brand img{width:30px;height:30px;border-radius:7px}
 nav{display:flex;flex-wrap:wrap;gap:4px 16px}
 nav a{text-decoration:none}
 nav a[aria-current]{color:var(--text);font-weight:600}
-.lang{border:1px solid var(--border);border-radius:6px;padding:2px 8px;text-decoration:none;font-size:.9rem}
+.lang{border:1px solid var(--border);border-radius:6px;padding:2px 8px;text-decoration:none;font-size:.9rem;transition:border-color .2s,color .2s}
+.lang:hover{border-color:var(--terra)}
 main{padding:24px 0 40px}
 h1{font-size:1.9rem;line-height:1.25;margin:.4em 0}
 h2{font-size:1.3rem;margin-top:1.8em}
@@ -26,8 +32,50 @@ footer{border-top:1px solid var(--border);background:var(--panel);color:var(--mu
 footer p{margin:.5em 0}
 .legal{font-size:.82rem}
 .btn{display:inline-block;padding:.6em 1.2em;border-radius:8px;border:1px solid var(--border);background:var(--bg);color:var(--muted);font-weight:600;cursor:not-allowed;user-select:none}
-.shots{display:grid;gap:18px;margin:20px 0}
-.shots figure{margin:0}
-.shots img{display:block;width:100%;height:auto;border:1px solid var(--border);border-radius:8px}
-.shots .narrow img{max-width:390px}
-.shots figcaption{color:var(--muted);font-size:.9rem;margin-top:6px}
+
+/* Первый экран */
+.hero{color:#fff;text-align:center;padding:56px 0 48px;
+background:linear-gradient(120deg,#2a1218,var(--wine),var(--brown),var(--terra),#34487a,var(--wine));background-size:300% 300%;animation:hero-bg 24s ease-in-out infinite alternate}
+.hero h1{font-size:clamp(1.7rem,4.5vw,2.8rem);margin:.3em 0 .2em;text-shadow:0 2px 12px rgba(0,0,0,.45)}
+.hero .slogan{font-size:clamp(1.05rem,2.4vw,1.3rem);margin:0 auto 1.2em;max-width:36em;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.5)}
+.hero-icon{display:block;margin:0 auto;width:128px;height:128px;border-radius:28px;box-shadow:0 10px 30px rgba(0,0,0,.45);animation:rise .7s ease-out both}
+.hero .btn{background:rgba(17,13,16,.55);border-color:rgba(255,255,255,.35);color:#f1e6e8;backdrop-filter:blur(4px)}
+@keyframes hero-bg{from{background-position:0% 50%}to{background-position:100% 50%}}
+
+/* Плавное появление */
+.reveal,main>h2,main>p{animation:rise .6s ease-out both}
+@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+/* Карусель: без JS — лента со scroll-snap */
+.carousel{position:relative;margin:16px 0}
+.track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:8px;border-radius:10px}
+.track:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.track figure{flex:0 0 100%;margin:0;scroll-snap-align:start;min-width:0}
+.track img{display:block;width:100%;height:auto;border:1px solid var(--border);border-radius:8px;background:var(--panel)}
+.track .narrow img{width:auto;max-width:100%;margin:0 auto;image-rendering:auto}
+.track .narrow a{display:block;text-align:center}
+.track figcaption{color:var(--muted);font-size:.95rem;margin-top:8px;text-align:center}
+.carousel.js .track{scrollbar-width:none}
+.carousel.js .track::-webkit-scrollbar{display:none}
+.controls{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:10px}
+.nav-btn{width:40px;height:40px;border-radius:50%;border:1px solid var(--border);background:var(--panel);color:var(--text);font-size:1.15rem;cursor:pointer;transition:background .2s,border-color .2s,transform .2s}
+.nav-btn:hover,.nav-btn:focus-visible{background:var(--wine);border-color:var(--terra);color:#fff;transform:scale(1.06)}
+.dots{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
+.dot{width:10px;height:10px;padding:0;border-radius:50%;border:1px solid var(--terra);background:transparent;cursor:pointer;transition:background .2s,transform .2s}
+.dot:hover{transform:scale(1.3)}
+.dot[aria-current]{background:var(--terra)}
+.nav-btn:focus-visible,.dot:focus-visible{outline:2px solid var(--accent2);outline-offset:2px}
+
+/* Карточки функций */
+.features{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin:14px 0}
+.feature{margin:0;padding:16px 18px;transition:border-color .25s,transform .25s,box-shadow .25s}
+.feature:hover{border-color:var(--terra);transform:translateY(-3px);box-shadow:0 8px 22px rgba(124,26,66,.28)}
+.feature h3{margin:.5em 0 .3em;font-size:1.05rem}
+.feature p{margin:0;color:var(--muted)}
+.ico{width:38px;height:38px;padding:7px;border-radius:10px;background:linear-gradient(135deg,var(--wine),var(--brown));color:#fff;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.feature:nth-child(3n+2) .ico{background:linear-gradient(135deg,var(--brown),var(--terra))}
+.feature:nth-child(3n) .ico{background:linear-gradient(135deg,#3d5590,var(--blue))}
+
+@media (prefers-reduced-motion: reduce){
+*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}

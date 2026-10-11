@@ -4,7 +4,7 @@
 описание, Privacy Policy и Terms of Service. Нужен для заявки на продакшен-ключ Riot.
 
 - Английский — в корне (`index.html`, `privacy.html`, `terms.html`), русский — в `ru/`.
-- Чистый HTML и `assets/style.css`: без JavaScript, cookies, аналитики, внешних шрифтов и CDN.
+- Чистый HTML и `assets/style.css`; из JavaScript — только свой `assets/site.js` для карусели скриншотов (подключается с `defer`, без библиотек и CDN; без него карусель остаётся лентой со `scroll-snap`) — решение заказчика 2026-10-11. Без cookies, аналитики, внешних шрифтов и CDN.
 - Исключение — JSON-LD (`<script type="application/ld+json">` на главных): это данные разметки для поисковиков, не исполняемый код.
 - Все ссылки относительные — сайт работает и на GitHub Pages, и на своём домене.
 
