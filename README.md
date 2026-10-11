@@ -5,6 +5,7 @@
 
 - Английский — в корне (`index.html`, `privacy.html`, `terms.html`), русский — в `ru/`.
 - Чистый HTML и `assets/style.css`: без JavaScript, cookies, аналитики, внешних шрифтов и CDN.
+- Исключение — JSON-LD (`<script type="application/ld+json">` на главных): это данные разметки для поисковиков, не исполняемый код.
 - Все ссылки относительные — сайт работает и на GitHub Pages, и на своём домене.
 
 ## Посмотреть локально
@@ -28,3 +29,13 @@ GitHub Pages: ветка `main`, папка `/` (корень). `.nojekyll` от
 
 Код подтверждения, который Riot выдаст при заявке, кладётся файлом `riot.txt`
 в корень репозитория — он будет на `https://sintence.ru/riot.txt`.
+
+## Поисковики
+
+- Коды подтверждения вставлять в `<head>` файлов `index.html` и `ru/index.html`:
+  `<meta name="google-site-verification" content="КОД">` (Google Search Console) и
+  `<meta name="yandex-verification" content="КОД">` (Яндекс Вебмастер).
+- После подтверждения отправить `https://sintence.ru/sitemap.xml` в Search Console и в Вебмастер.
+- В `sitemap.xml` у страниц `lastmod` и `priority` — при правке страниц обновлять `lastmod`.
+- В `<head>` страниц: title, description, Open Graph, `twitter:card`, favicon
+  (`favicon.svg`, `favicon.ico`, `apple-touch-icon.png`); `404.html` — `noindex`.
